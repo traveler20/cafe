@@ -1,0 +1,51 @@
+<section class="pankuzu">
+    <nav role="navigation">
+      <ul class="pankuzu__list">
+        <li><a href="<$mt:BlogRelativeURL$>"><i class="fas fa-home"></i></a></li>
+        <mt:If name="this_page" eq="news">
+        <!-- NEWS -->
+        <li>ニュース</li>
+        <!-- /NEWS-->
+        <mt:ElseIf name="this_page" eq="entry">
+        <!-- ENTRY -->
+        <li><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
+        <mt:ParentCategories exclude_current="1">
+          <mt:If tag="CategoryCount">
+          <li><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel encode_html="1"$></a></li>
+          <mt:Else>
+          <li><$mt:CategoryLabel encode_html="1"$></li>
+          </mt:If>
+        </mt:ParentCategories>
+          <mt:If tag="CategoryCount">
+          <li><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel encode_html="1"$></a></li>
+          </mt:If>
+        <li><$mt:EntryTitle encode_html="1"$></li>
+        <!-- /ENTRY-->
+        <mt:ElseIf name="this_page" eq="archives">
+        <!-- ARCHIVES -->
+        <li><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
+        <li><$mt:ArchiveTitle$></li>
+        <!-- /ARCHIVES-->
+        <mt:ElseIf name="this_page" eq="webpage">
+        <!-- WEBPAGE -->
+        <mt:ParentFolders>
+          <li>
+          <$mt:Var name="has_index" value="0"$>
+           <mt:Pages sort_by="authored_on" sort_order="ascend" limit="20">
+           <mt:If tag="PageBasename" eq="index">
+             <a href="<$mt:PagePermalink$>"><$mt:FolderLabel encode_html="1"$></a>
+             <$mt:Var name="has_index" value="1"$>
+           </mt:If>
+           </mt:Pages>
+           <mt:Unless name="has_index">
+             <$mt:FolderLabel encode_html="1"$>
+           </mt:Unless>
+          </li>
+        </mt:ParentFolders>
+        <li><span><$mt:PageTitle encode_html="1"$></span></li>
+        <!-- /WEBPAGE-->
+    </mt:If>
+    </ul>
+    </nav>
+  </section>
+  

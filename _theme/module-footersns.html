@@ -1,0 +1,18 @@
+<ul class="footer__sns">
+    <mt:If name="social_button_hatena">
+      <li><a href="https://b.hatena.ne.jp/add?mode=confirm&url=<$mt:BlogURL encode_html="1"$>&title=<mt:BlogName encode_html="1">" class="footer__sns__hatebu" target="_blank"><span>B!</span></a></li>
+    </mt:If>
+    <mt:If name="social_button_twitter">
+      <li><a href="https://twitter.com/share?url=<$mt:BlogURL encode_html="1"$>&text=<mt:BlogName encode_html="1">" target="_blank" class="footer__sns__twitter"><i class="fab fa-twitter"></i></a></li>
+    </mt:If>
+    <mt:If name="social_button_facebook">
+      <li><a href="https://www.facebook.com/share.php?u=<$mt:BlogURL encode_html="1"$>" target="_blank" rel="nofollow" class="footer__sns__facebook"><i class="fab fa-facebook-f"></i></a></li>
+    </mt:If>
+    <mt:If name="social_button_pocket">
+      <li><a href="https://getpocket.com/edit?url=<$mt:BlogURL encode_html="1"$>" target="_blank" rel="nofollow" class="footer__sns__pocket"><i class="fab fa-get-pocket"></i></a></li>
+    </mt:If>
+    <mt:If name="social_button_line">
+      <li><a href="https://social-plugins.line.me/lineit/share?url=<$mt:BlogURL encode_html="1"$>" target="_blank" rel="nofollow" class="footer__sns__line"><i class="fab fa-line"></i></a></li>
+    </mt:If>
+  </ul>
+  

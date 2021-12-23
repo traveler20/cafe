@@ -1,0 +1,34 @@
+<ul class="archives__list">
+    <mt:Entries paginate_by="$entries_per_page">
+    <li>
+      <div class="archives__cardWrap">
+        <div class="archivesdata__wrap">
+          <p class="archivesdata__date"><$mt:EntryDate format="%Y.%m.%d"$></p>
+          <mt:if tag="EntryCategories">
+          <ul class="archivesdata__genre">
+          <mt:EntryCategories>
+            <li><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel encode_html="1"$></a></li>
+          </mt:EntryCategories>
+          </ul>
+          </mt:if>
+        </div>
+        <h3 class="archives__list__title"><$mt:EntryTitle encode_html="1"$></h3>
+        <p class="archives__list__text">
+          <$mt:EntryBody convert_breaks="1" words="150"$>
+        </p>
+        <button class="archives__list__btn"  onclick="location.href='<$mt:EntryPermalink$>'">続きを見る</button>
+      </div>
+    </li>
+    <mt:EntriesFooter>
+  </ul>
+  <div class="archives__pagination">
+    <mt:PaginationHasPrevious>
+      <a href="<$mt:PaginationPreviousURL$>" class="prev">前の<$mt:GetVar name="entries_per_page"$>件</a>
+    </mt:PaginationHasPrevious>
+    <mt:PaginationHasNext>
+      <a href="<$mt:PaginationNextURL$>" class="next">次の<$mt:GetVar name="entries_per_page"$>件</a>
+    </mt:PaginationHasNext>
+  </div>
+    </mt:EntriesFooter>
+  </mt:Entries>
+  

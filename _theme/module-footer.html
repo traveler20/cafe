@@ -1,0 +1,43 @@
+<footer class="footer__wrap">
+	<a href="#pagetop"><div class="footer__scrollBtn">pagetop</div></a>
+	<div class="inner">
+		<div class="footer__naviWrap">
+			<nav class="footer__navi">
+				<ul>
+					<mt:Pages
+						field:page_naviposition="ヘッダー・フッター"
+						sort_order="ascend"
+					>
+						<li>
+							<a href="<$mt:PagePermalink$>"
+								><$mt:PageTitle encode_html="1"$></a
+							>
+						</li>
+					</mt:Pages>
+					<li><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
+				</ul>
+			</nav>
+			<$mt:Include module="フッター（ソーシャルボタン）"$>
+		</div>
+		<!-- サーチ -->
+		<mt:SetVars>
+			blogid=<$mt:BlogID$> blogurl=<$mt:BlogRelativeURL$>search.html
+		</mt:SetVars>
+		<$mt:SiteSearchSnippet blog_ids="$blogid" form_action="$blogurl"
+		search_result_container="s-result"$>
+		<!-- /サーチ -->
+		<div class="footer__contentsWrap">
+			<ul class="footer__sublist">
+				<mt:Pages field:page_naviposition="フッター下" sort_order="ascend">
+					<li>
+						<a href="<$mt:PagePermalink$>" target="_blank"
+							><$mt:PageTitle encode_html="1"$></a
+						>
+					</li>
+				</mt:Pages>
+			</ul>
+			<p class="footer__copyright"><$mt:Var name='copyright'$></p>
+		</div>
+	</div>
+</footer>
+<$mt:ServiceWorkerSnippet pn_auto_spawn="0"$>

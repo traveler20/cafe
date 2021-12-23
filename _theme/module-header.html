@@ -1,0 +1,51 @@
+<!-- 
+    headerモジュール
+ -->
+<header id="pagetop" class="ul-header">
+    <nav class="ul-navi">
+      <div class="inner">
+        <h1 class="navi__title">
+          <a href="<$mt:BlogURL$>">
+            <mt:If tag="CustomFieldValue" identifier="blog_logo">
+              <img src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" alt="<$mt:BlogName$>"><mt:Else><$mt:BlogName$>
+            </mt:If>
+          </a>
+        </h1>
+        <ul class="navi__list">
+          <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
+              <li><a href="<$mt:PagePermalink$>"><$mt:PageTitle encode_html="1"$></a></li>
+          </mt:Pages>
+          <li><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- spnavi -->
+  <header id="pagetop" class="sp-ul-header">
+    <h1 class="sp_ul__logo">
+      <a href="<$mt:BlogURL$>">
+        <mt:If tag="CustomFieldValue" identifier="blog_logo">
+          <img src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" alt="<$mt:BlogName$>"><mt:Else><$mt:BlogName$>
+        </mt:If>
+      </a>
+    </h1>
+    <a class="menu">
+      <span class="menu__line menu__line--top"></span>
+      <span class="menu__line menu__line--center"></span>
+      <span class="menu__line menu__line--bottom"></span>
+    </a>
+    <div class="sp_gnav">
+        <nav class="gnav">
+          <div class="gnav__wrap">
+            <ul class="gnav__menu">
+              <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
+                  <li class="gnav__menu__item"><a href="<$mt:PagePermalink$>"><$mt:PageTitle encode_html="1"$></a></li>
+              </mt:Pages>
+              <li class="gnav__menu__item"><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- /sp -->
+  
