@@ -1,0 +1,21 @@
+/* p-fv
+--------------------------- */
+@use "./../../foundation/system" as s;
+
+.p-fv {
+	height: 88vh;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	&__title {
+		font-size: 8rem;
+		font-weight: bold;
+		color: s.$c-body;
+	}
+	@include s.breakpoint(tablet) {
+	}
+	@include s.breakpoint(pc) {
+	}
+}

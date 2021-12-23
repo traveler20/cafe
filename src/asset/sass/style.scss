@@ -19,6 +19,7 @@
  -------------------*/
 @use "./object/component/loading";
 @use "./object/component/section";
+@use "./object/component/columns";
 @use "./object/component/table";
 @use "./object/component/lists";
 @use "./object/component/details";
@@ -28,6 +29,8 @@
 /*-------------------
  * project
  -------------------*/
+@use "./object/project/fv";
+@use "./object/project/news";
 @use "./object/project/contact";
 
 /*-------------------

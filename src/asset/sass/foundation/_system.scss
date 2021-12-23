@@ -6,7 +6,7 @@
 $c-base: #efefef;
 $c-base-sub: #fff;
 $c-body: #333;
-$c-accent: #ca6060;
+$c-accent: #8aaef0;
 
 $c-light: #ccc; // header
 $c-dark: #222; // footer
@@ -31,8 +31,8 @@ $c-dark: #222; // footer
 
 // font system
 // ---------------------
-@mixin garamond($weight: bold) {
-	font-family: "Cormorant Garamond", serif;
+@mixin accentfont($weight: bold) {
+	font-family: luxus-brut, cursive, serif;
 	font-weight: $weight;
 }
 

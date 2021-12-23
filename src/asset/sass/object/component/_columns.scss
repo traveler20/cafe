@@ -1,0 +1,24 @@
+/* c-2columns
+--------------------------- */
+@use "./../../foundation/system" as s;
+
+.c-2columns {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 24px;
+
+	@include s.breakpoint(tablet) {
+		flex-direction: row;
+
+		img {
+			width: 40%;
+		}
+		&__figcaption {
+			width: 44%;
+		}
+	}
+	@include s.breakpoint(pc) {
+	}
+}

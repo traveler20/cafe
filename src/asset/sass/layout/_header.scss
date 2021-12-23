@@ -6,14 +6,13 @@ $header-height: 60px;
 
 .l-header {
 	width: 100%;
-	background-color: s.$c-light;
+	background-color: transparent;
 
 	position: fixed;
 	top: 0;
 	z-index: 2;
 	@include s.transition-base();
 	transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-	box-shadow: 0 4px 4px -4px rgba($color: s.$c-dark, $alpha: 0.6);
 	&.is-headIn {
 		transform: translateY(-100%);
 	}
@@ -42,6 +41,10 @@ $header-height: 60px;
 		align-items: center;
 		justify-content: space-between;
 		gap: 14px;
+		background-color: s.$c-base-sub;
+		border-radius: 50px;
+		box-shadow: 0 4px 4px -4px rgba($color: s.$c-dark, $alpha: 0.6);
+		padding: 4px 20px;
 	}
 
 	&__navCta {
@@ -173,6 +176,7 @@ $header-height: 60px;
 
 		&__nav {
 			flex-direction: row-reverse;
+			padding: 10px 30px 7px;
 		}
 
 		&__navCta {
@@ -233,6 +237,9 @@ $header-height: 60px;
 	@include s.breakpoint(pc) {
 		&__inner {
 			gap: 200px;
+		}
+		&__nav {
+			padding: 10px 80px 7px;
 		}
 	}
 }
