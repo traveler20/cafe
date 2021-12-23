@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- タイトル -->
   <title><$mt:BlogName encode_html="1"$></title>
   <meta name="generator" content="<$mt:ProductName version="1"$>">
   <meta name="description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
@@ -37,13 +38,17 @@
   <body>
     <!-- spnavi -->
     <header id="pagetop" class="sp-ul-header">
+      <!-- spのheaderのlogo -->
       <h1 class="sp_ul__logo">
+        <!-- トップページリンク -->
         <a href="<$mt:BlogURL$>">
           <mt:If tag="CustomFieldValue" identifier="blog_logo">
+            <!-- トップロゴ画像/トップタイトル -->
             <img src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" alt="<$mt:BlogName$>"><mt:Else><$mt:BlogName$>
           </mt:If>
         </a>
       </h1>
+      <!-- ハンバーガーメニュー -->
       <a class="menu">
         <span class="menu__line menu__line--top"></span>
         <span class="menu__line menu__line--center"></span>
@@ -56,6 +61,7 @@
                 <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
                     <li class="gnav__menu__item"><a href="<$mt:PagePermalink$>"><$mt:PageTitle encode_html="1"$></a></li>
                 </mt:Pages>
+                <!-- ニュースページリンク -->
                 <li class="gnav__menu__item"><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
               </ul>
             </div>
@@ -65,6 +71,7 @@
   <!-- /sp -->
   	<main class="index__main" id="pagetop">
   		<div class="inner">
+        <!-- fvキャッチコピー -->
         <dl class="index__catchWrap">
           <dt class="index__catch">
           Modern<br />
@@ -77,12 +84,17 @@
           </dd>
         </dl>
   	</div>
+    <!-- 下スクロールボタン -->
     <div class="index__main__scrollBtn"></div>
   	</main>
+
+    <!-- 固定ヘッダーナビ -->
   	<nav class="index__navi">
   		<div class="inner">
+        <!-- pcのヘッダーロゴ -->
         <h1 class="index__navi__title"><a href="<$mt:BlogURL$>" class="header__title">
           <mt:If tag="CustomFieldValue" identifier="blog_logo">
+            <!-- トップロゴ画像/トップタイトル -->
             <img src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" alt="<$mt:BlogName$>"><mt:Else><$mt:BlogName$>
           </mt:If>
         </a></h1>
@@ -97,16 +109,20 @@
   		</div>
   	</nav>
     
+    <!-- メインページ -->
     <mt:Pages sort_order="ascend">
     <mt:If tag="CustomFieldValue" identifier="page_maintextarea">
       <section class="index__sectionWrap">
         <div class="index__section__header">
           <div class="inner">
+            <!-- メインページタイトル -->
             <h2 class="index__section__title" id="<$mt:PageBasename$>"><$mt:PageTitle encode_html="1"$></h2>
           </div>
         </div>
         <div class="inner wysiwyg index__wysiwyg">
+        <!-- メインページテキストエリア -->
         <$mt:CustomFieldValue identifier="page_maintextarea"$>
+        <!-- メインページリンク -->
         <mt:If tag="CustomFieldValue" identifier="page_mainbutton">
           <button class="index__section__btn" onclick="location.href='<$mt:PagePermalink$>'"><$mt:GetVar name="main_pagebuttonTxt"$></button>
         </mt:If>
@@ -114,6 +130,8 @@
       </section>
     </mt:If>
     </mt:Pages>
+      
+    <!-- ニュースセクション -->
       <section class="index__sectionWrap index__newsWrap">
         <div class="index__section__header">
           <div class="inner">
@@ -122,32 +140,42 @@
         </div>
         <div class="inner">
           <ul class="index__news">
+            <!-- ニュース記事の表示数 -->
             <mt:Entries lastn="4">
             <li>
+              <!-- 各記事のリンク -->
               <a href="<$mt:EntryPermalink$>">
               <div class="index__newsWrap">
                 <div class="index__news__dateWrap">
+                  <!-- 各記事のカテゴリー有る場合 -->
                   <mt:If tag="CategoryCount">
                   <p class="index__news__category">   
-                   <mt:EntryCategories type="primary"><$mt:CategoryLabel encode_html="1"$></mt:EntryCategories>
+                    <!-- 各記事のカテゴリーラベル -->
+                    <mt:EntryCategories type="primary"><$mt:CategoryLabel encode_html="1"$></mt:EntryCategories>
                   </p>
+                  <!-- 各記事のカテゴリー無い場合 -->
                   <mt:else>
                   <p class="index__news__category--no">
                   </p>
                   </mt:If>
                   <p class="index__news__date">
+                    <!-- 各記事の日付 -->
                     <time datetime="<$mt:EntryDate format_name='iso8601'$>"><$mt:EntryDate format="%x"$></time>
                   </p>
                 </div>
+                <!-- 各記事のタイトルテキスト -->
                 <p class="index__news__text"><$mt:EntryTitle encode_html="1"$></p>
               </div>
               </a>
             </li>
             </mt:Entries>
           </ul>
+          <!-- ニュース一覧リンク -->
           <button class="index__section__btn" onclick="location.href='news.html'">全て見る</button>
         </div>
       </section>
+
+  <!-- フッターの呼び出し -->
   <$mt:Include module="フッター"$>
   <!-- <script src="<$mt:BlogURL encode_html="1"$>common/js/main.js"></script> -->
   </body>
