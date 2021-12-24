@@ -6,7 +6,7 @@
 $c-base: #efefef;
 $c-base-sub: #fff;
 $c-body: #333;
-$c-accent: #8aaef0;
+$c-accent: #b2976d;
 
 $c-light: #ccc; // header
 $c-dark: #222; // footer
@@ -58,10 +58,16 @@ $c-dark: #222; // footer
 .pc-only {
 	display: none;
 }
+.sp-only {
+	display: inline-block;
+}
 @include breakpoint(tablet) {
 }
 @include breakpoint(pc) {
 	.pc-only {
 		display: inline-block;
+	}
+	.sp-only {
+		display: none;
 	}
 }

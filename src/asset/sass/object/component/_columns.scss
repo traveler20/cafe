@@ -12,7 +12,7 @@
 	@include s.breakpoint(tablet) {
 		flex-direction: row;
 
-		img {
+		&__sub {
 			width: 40%;
 		}
 		&__figcaption {

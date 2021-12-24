@@ -3,18 +3,49 @@
 @use "./../../foundation/system" as s;
 
 .p-fv {
+	width: 96vw;
 	height: 88vh;
+	background-image: url(./../img/fv.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	border-radius: 0 0 80px 0;
 
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 
+	position: relative;
+	z-index: 0;
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color: s.$c-base-sub, $alpha: 0.6);
+		border-radius: 0 0 80px 0;
+	}
+
+	.c-section__inner {
+		width: 100%;
+	}
+
 	&__title {
 		font-size: 8rem;
 		font-weight: bold;
 		color: s.$c-body;
+		line-height: 1;
 	}
+	&__copy {
+		margin-top: 16px;
+		font-size: 2rem;
+	}
+
 	@include s.breakpoint(tablet) {
+		&__title {
+			line-height: 1.2;
+		}
 	}
 	@include s.breakpoint(pc) {
 	}

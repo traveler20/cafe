@@ -3,10 +3,28 @@
 @use "./../../foundation/system" as s;
 
 .c-section {
-	background-color: s.$c-base;
+	background-color: s.$c-base-sub;
 	padding: 120px 0;
 	&:nth-of-type(even) {
-		background-color: s.$c-base-sub;
+		background-color: s.$c-base;
+	}
+	&--bg {
+		height: 80vh;
+		background-image: url(./../img/cafe3.jpg);
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+
+		position: relative;
+		z-index: 0;
+		&:before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: rgba($color: s.$c-base, $alpha: 0.6);
+			z-index: -1;
+		}
 	}
 
 	&__inner {
@@ -17,7 +35,7 @@
 	&__title {
 		font-size: 2.8rem;
 		font-weight: 700;
-		letter-spacing: 8px;
+		letter-spacing: 2px;
 		padding-top: 50px;
 		padding-left: 30px;
 		margin: 0 auto 12px;
@@ -39,6 +57,7 @@
 	&__title--center {
 		@extend .c-section__title;
 		text-align: center;
+		padding-left: 0;
 		&:before {
 			right: 0;
 		}

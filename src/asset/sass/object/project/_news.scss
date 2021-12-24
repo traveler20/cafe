@@ -12,6 +12,12 @@
 			width: 100%;
 			color: s.$c-body;
 			text-decoration: none;
+
+			display: -webkit-box;
+			overflow: hidden;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+
 			transition: 0.4s;
 			&:hover {
 				opacity: 0.6;
@@ -23,7 +29,8 @@
 		}
 	}
 	&__category {
-		margin: 0 18px;
+		display: inline-block;
+		margin: 4px 18px;
 		padding: 5px 12px;
 		color: s.$c-base;
 		background-color: s.$c-accent;
@@ -35,6 +42,13 @@
 		text-align: left;
 	}
 	@include s.breakpoint(tablet) {
+		&__list {
+			a {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
 	}
 	@include s.breakpoint(pc) {
 	}

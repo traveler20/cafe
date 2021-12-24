@@ -1,0 +1,15 @@
+/* p-menu
+--------------------------- */
+@use "./../../foundation/system" as s;
+
+.p-menu {
+	width: 96vw;
+	border-radius: 0 80px 0 0;
+	position: relative;
+	margin-top: -300px;
+
+	@include s.breakpoint(tablet) {
+	}
+	@include s.breakpoint(pc) {
+	}
+}
