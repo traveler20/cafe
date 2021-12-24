@@ -1,0 +1,311 @@
+<$mt:Include module="共通変数" strip_linefeeds="1"$>
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- タイトル -->
+  <title><$mt:BlogName encode_html="1"$></title>
+  <meta name="generator" content="<$mt:ProductName version="1"$>">
+  <meta name="description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
+  <meta name="keywords" content="<$mt:GetVar name="meta_keywords"$>">
+  <link rel="shortcut icon" type="image/x-icon" href="<$mt:BlogURL encode_html="1"$>common/images/favicon.ico">
+  <link rel="start" href="<$mt:BlogURL encode_html="1"$>">
+  <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="<$mt:Link template="feed_recent"$>">
+  <$mt:CanonicalLink$>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="<$mt:BlogLanguage setvar="blog_lang"$><mt:If name="blog_lang" eq="ja">ja_JP<mt:Else><$mt:Var name="blog_lang"$></mt:If>">
+  <meta property="og:title" content="<$mt:BlogName encode_html="1"$>">
+  <meta property="og:url" content="<$mt:BlogURL encode_html="1"$>">
+  <meta property="og:description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
+  <meta property="og:site_name" content="<$mt:BlogName encode_html="1"$>">
+  <meta property="og:image" content="<$mt:BlogURL encode_html="1"$>common/images/noimage_ogp.png">
+  <meta property="fb:app_id" content="<$mt:Var name='fb_app_id'$>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@<$mt:Var name='twitter_via'$>">
+  <meta name="twitter:title" content="<$mt:BlogName encode_html="1"$>">
+  <meta name="twitter:description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
+  <meta name="twitter:image" content="<$mt:BlogURL encode_html="1"$>common/images/noimage_ogp.png">
+  <!-- Microdata -->
+  <meta itemprop="description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
+  <link itemprop="url" href="<$mt:BlogURL encode_html="1"$>">
+  <link itemprop="image" href="<$mt:BlogURL encode_html="1"$>common/images/noimage_ogp.png">
+  <$mt:Include module="Google アナリティクス"$>
+  <$mt:Include module="ヘッダースクリプト"$>
+  </head>
+<mt:SetVarBlock name="entrycount"><$mt:EntriesCount$></mt:SetVarBlock>
+  <body>
+    <!-- spnavi -->
+    <header id="pagetop" class="sp-ul-header">
+      <!-- spのheaderのlogo -->
+      <h1 class="sp_ul__logo">
+        <!-- 
+          <$mt:BlogURL$>
+          ブログの URL (サイト URL) をhttp://から始まる絶対 URL で表示
+          https://movabletype.net/tags/2007/08/blogurl.html
+         -->
+        <!-- トップページリンク -->
+        <a href="<$mt:BlogURL$>">
+          <mt:If tag="CustomFieldValue" identifier="blog_logo">
+            <!-- 
+              <$mt:BlogName$>
+              ブログの名前
+              https://movabletype.net/tags/2007/08/blogname.html
+             -->
+            <!-- トップロゴ画像/トップタイトル -->
+            <img 
+              src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" 
+              alt="<$mt:BlogName$>"
+            >
+          <mt:Else>
+            <$mt:BlogName$>
+          </mt:If>
+        </a>
+      </h1>
+      <!-- ハンバーガーメニュー -->
+      <a class="menu">
+        <span class="menu__line menu__line--top"></span>
+        <span class="menu__line menu__line--center"></span>
+        <span class="menu__line menu__line--bottom"></span>
+      </a>
+      <div class="sp_gnav">
+          <nav class="gnav">
+            <div class="gnav__wrap">
+              <ul class="gnav__menu">
+                <!-- 
+                  <mt:Pages>
+                  ウェブページの一覧を表示するためのブロックタグ
+                  https://movabletype.net/tags/2007/08/pages.html
+                -->
+                <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
+                  <!-- 
+                    <$mt:PageTitle$>
+                    ウェブページのタイトルを表示します。
+                    https://movabletype.net/tags/2007/08/pagetitle.html
+                   -->
+                   <!-- 
+                    <$mt:PagePermalink$>
+                    現在のページのアーカイブへの絶対 URL を表示します。
+                    https://movabletype.net/tags/2007/08/pagepermalink.html
+                   -->
+                   <li class="gnav__menu__item"><a href="<$mt:PagePermalink$>"><$mt:PageTitle encode_html="1"$></a></li>
+                </mt:Pages>
+                <!-- 
+                  <$mt:BlogRelativeURL$>
+                  ブログのURLを、ホストからの相対URLで表示。
+                  たとえば、ブログの URL が http://blog.example.com/first-weblog/ の場合、/first-weblog/を表示。
+                  https://movabletype.net/tags/2007/08/blogrelativeurl.html
+                 -->
+                <!-- ニュースページリンク -->
+                <li class="gnav__menu__item"><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
+              </ul>
+            </div>
+          </nav>
+      </div>
+    </header>
+
+    <!-- /sp -->
+  	<main class="index__main" id="pagetop">
+  		<div class="inner">
+        <!-- fvキャッチコピー -->
+        <dl class="index__catchWrap">
+          <dt class="index__catch">
+          Modern<br />
+          Corporate
+          </dt>
+          <dd class="index__catchTxt">
+          余白を大きくとり、高解像度の写真を使ったテーマ。<br>
+          洗練された印象を与え、ブランドイメージを効果的に伝えることができます。<br>
+          中小規模の企業サイトや、ショップサイトに最適です。
+          </dd>
+        </dl>
+  	  </div>
+      <!-- 下スクロールボタン -->
+      <div class="index__main__scrollBtn"></div>
+  	</main>
+
+    <!-- 固定ヘッダーナビ -->
+  	<nav class="index__navi">
+  		<div class="inner">
+        <!-- 
+          <$mt:BlogURL$>
+          ブログの URL (サイト URL) をhttp://から始まる絶対 URL で表示
+          https://movabletype.net/tags/2007/08/blogurl.html
+         -->
+        <!-- pcのヘッダーロゴ -->
+        <h1 class="index__navi__title">
+          <a href="<$mt:BlogURL$>" class="header__title">
+          <mt:If tag="CustomFieldValue" identifier="blog_logo">
+            <!-- 
+              <$mt:BlogName$>
+              ブログの名前
+              https://movabletype.net/tags/2007/08/blogname.html
+             -->
+            <!-- トップロゴ画像/トップタイトル -->
+            <img 
+              src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" 
+              alt="<$mt:BlogName$>"
+            >
+          <mt:Else>
+            <$mt:BlogName$>
+          </mt:If>
+          </a>
+        </h1>
+        <ul class="navi__list">
+          <!-- 
+            <mt:Pages>
+            ウェブページの一覧を表示するためのブロックタグ
+            https://movabletype.net/tags/2007/08/pages.html
+          -->
+          <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
+                <!-- 
+                  <$mt:PageTitle$>
+                  ウェブページのタイトルを表示します。
+                  https://movabletype.net/tags/2007/08/pagetitle.html
+                 -->
+                 <!-- 
+                  <$mt:PagePermalink$>
+                  現在のページのアーカイブへの絶対 URL を表示します。
+                  https://movabletype.net/tags/2007/08/pagepermalink.html
+                 -->
+              <li>
+                <a 
+                  href="
+                  <mt:If tag="CustomFieldValue" identifier="page_maintextarea">
+                    #<$mt:PageBasename$>
+                  <mt:Else>
+                    <$mt:PagePermalink$>
+                  </mt:If>"
+                >
+                  <$mt:PageTitle encode_html="1"$>
+                </a>
+              </li>
+          </mt:Pages>
+          <mt:If name="entrycount" gt="0">
+            <li><a href="#news">ニュース</a></li>
+          </mt:If>
+        </ul>
+  		</div>
+  	</nav>
+    
+    <!-- 
+      <mt:Pages>
+      ウェブページの一覧を表示するためのブロックタグ
+      https://movabletype.net/tags/2007/08/pages.html
+    -->
+    <!-- メインページ -->
+    <mt:Pages sort_order="ascend">
+    <mt:If tag="CustomFieldValue" identifier="page_maintextarea">
+      <section class="index__sectionWrap">
+        <div class="index__section__header">
+          <div class="inner">
+            <!-- 
+            <$mt:PageTitle$>
+            ウェブページのタイトルを表示します。
+            https://movabletype.net/tags/2007/08/pagetitle.html
+            -->
+            <!-- メインページタイトル -->
+            <h2 class="index__section__title" id="<$mt:PageBasename$>">
+              <$mt:PageTitle encode_html="1"$>
+            </h2>
+          </div>
+        </div>
+        <div class="inner wysiwyg index__wysiwyg">
+        <!-- メインページテキストエリア -->
+        <$mt:CustomFieldValue identifier="page_maintextarea"$>
+        <!-- メインページリンク -->
+        <mt:If tag="CustomFieldValue" identifier="page_mainbutton">
+          <!-- 
+          <$mt:PagePermalink$>
+          現在のページのアーカイブへの絶対 URL を表示します。
+          https://movabletype.net/tags/2007/08/pagepermalink.html
+          -->
+          <button 
+            class="index__section__btn" 
+            onclick="location.href='<$mt:PagePermalink$>'"
+          >
+            <$mt:GetVar name="main_pagebuttonTxt"$>
+          </button>
+        </mt:If>
+        </div>
+      </section>
+    </mt:If>
+    </mt:Pages>
+      
+    <!-- ニュースセクション -->
+      <section class="index__sectionWrap index__newsWrap">
+        <div class="index__section__header">
+          <div class="inner">
+            <h2 class="index__section__title" id="news">ニュース</h2>
+          </div>
+        </div>
+        <div class="inner">
+          <ul class="index__news">
+            <!-- 
+              <mt:Entries>
+              ブログ記事の一覧のためのブロックタグ
+              https://movabletype.net/tags/2007/08/entries.html
+
+              <$mt:EntryTitle$>
+              ブログ記事のタイトル
+              https://movabletype.net/tags/2007/08/entrytitle.html
+
+              <$mt:EntryPermalink$>
+              ブログ記事を含むアーカイブの絶対 URL
+              https://movabletype.net/tags/2007/08/entrypermalink.html
+
+              <$mt:EntryBody$>
+              ブログ記事の本文
+              https://movabletype.net/tags/2007/08/entrybody.html
+
+              <$mt:EntryExcerpt$>
+              ブログ記事の概要。指定がない場合はブログ記事の本文を、最初から 40 文字
+              https://movabletype.net/tags/2007/08/entryexcerpt.html
+
+              モディファイアで条件指定可能
+             -->
+            <!-- ニュース記事の表示数 -->
+            <mt:Entries lastn="4">
+            <li>
+              <!-- 各記事のリンク -->
+              <a href="<$mt:EntryPermalink$>">
+              <div class="index__newsWrap">
+                <div class="index__news__dateWrap">
+                  <!-- 各記事のカテゴリー有る場合 -->
+                  <mt:If tag="CategoryCount">
+                  <p class="index__news__category">   
+                    <!-- 各記事のカテゴリーラベル -->
+                    <mt:EntryCategories type="primary">
+                      <$mt:CategoryLabel encode_html="1"$>
+                    </mt:EntryCategories>
+                  </p>
+                  <!-- 各記事のカテゴリー無い場合 -->
+                  <mt:else>
+                  <p class="index__news__category--no">
+                  </p>
+                  </mt:If>
+                  <p class="index__news__date">
+                    <!-- 各記事の日付 -->
+                    <time datetime="<$mt:EntryDate format_name='iso8601'$>">
+                      <$mt:EntryDate format="%x"$>
+                    </time>
+                  </p>
+                </div>
+                <!-- 各記事のタイトルテキスト -->
+                <p class="index__news__text"><$mt:EntryTitle encode_html="1"$></p>
+              </div>
+              </a>
+            </li>
+            </mt:Entries>
+          </ul>
+          <!-- ニュース一覧リンク -->
+          <button class="index__section__btn" onclick="location.href='news.html'">全て見る</button>
+        </div>
+      </section>
+
+  <!-- フッターの呼び出し -->
+  <$mt:Include module="フッター"$>
+  <!-- <script src="<$mt:BlogURL encode_html="1"$>common/js/main.js"></script> -->
+  </body>
+</html>

@@ -1,311 +1,359 @@
-<$mt:Include module="共通変数" strip_linefeeds="1"$>
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- タイトル -->
-  <title><$mt:BlogName encode_html="1"$></title>
-  <meta name="generator" content="<$mt:ProductName version="1"$>">
-  <meta name="description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
-  <meta name="keywords" content="<$mt:GetVar name="meta_keywords"$>">
-  <link rel="shortcut icon" type="image/x-icon" href="<$mt:BlogURL encode_html="1"$>common/images/favicon.ico">
-  <link rel="start" href="<$mt:BlogURL encode_html="1"$>">
-  <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="<$mt:Link template="feed_recent"$>">
-  <$mt:CanonicalLink$>
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="<$mt:BlogLanguage setvar="blog_lang"$><mt:If name="blog_lang" eq="ja">ja_JP<mt:Else><$mt:Var name="blog_lang"$></mt:If>">
-  <meta property="og:title" content="<$mt:BlogName encode_html="1"$>">
-  <meta property="og:url" content="<$mt:BlogURL encode_html="1"$>">
-  <meta property="og:description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
-  <meta property="og:site_name" content="<$mt:BlogName encode_html="1"$>">
-  <meta property="og:image" content="<$mt:BlogURL encode_html="1"$>common/images/noimage_ogp.png">
-  <meta property="fb:app_id" content="<$mt:Var name='fb_app_id'$>">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@<$mt:Var name='twitter_via'$>">
-  <meta name="twitter:title" content="<$mt:BlogName encode_html="1"$>">
-  <meta name="twitter:description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
-  <meta name="twitter:image" content="<$mt:BlogURL encode_html="1"$>common/images/noimage_ogp.png">
-  <!-- Microdata -->
-  <meta itemprop="description" content="<$mt:BlogDescription remove_html="1" encode_html="1"$>">
-  <link itemprop="url" href="<$mt:BlogURL encode_html="1"$>">
-  <link itemprop="image" href="<$mt:BlogURL encode_html="1"$>common/images/noimage_ogp.png">
-  <$mt:Include module="Google アナリティクス"$>
-  <$mt:Include module="ヘッダースクリプト"$>
-  </head>
-<mt:SetVarBlock name="entrycount"><$mt:EntriesCount$></mt:SetVarBlock>
-  <body>
-    <!-- spnavi -->
-    <header id="pagetop" class="sp-ul-header">
-      <!-- spのheaderのlogo -->
-      <h1 class="sp_ul__logo">
-        <!-- 
-          <$mt:BlogURL$>
-          ブログの URL (サイト URL) をhttp://から始まる絶対 URL で表示
-          https://movabletype.net/tags/2007/08/blogurl.html
-         -->
-        <!-- トップページリンク -->
-        <a href="<$mt:BlogURL$>">
-          <mt:If tag="CustomFieldValue" identifier="blog_logo">
-            <!-- 
-              <$mt:BlogName$>
-              ブログの名前
-              https://movabletype.net/tags/2007/08/blogname.html
-             -->
-            <!-- トップロゴ画像/トップタイトル -->
-            <img 
-              src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" 
-              alt="<$mt:BlogName$>"
-            >
-          <mt:Else>
-            <$mt:BlogName$>
-          </mt:If>
-        </a>
-      </h1>
-      <!-- ハンバーガーメニュー -->
-      <a class="menu">
-        <span class="menu__line menu__line--top"></span>
-        <span class="menu__line menu__line--center"></span>
-        <span class="menu__line menu__line--bottom"></span>
-      </a>
-      <div class="sp_gnav">
-          <nav class="gnav">
-            <div class="gnav__wrap">
-              <ul class="gnav__menu">
-                <!-- 
-                  <mt:Pages>
-                  ウェブページの一覧を表示するためのブロックタグ
-                  https://movabletype.net/tags/2007/08/pages.html
-                -->
-                <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
-                  <!-- 
-                    <$mt:PageTitle$>
-                    ウェブページのタイトルを表示します。
-                    https://movabletype.net/tags/2007/08/pagetitle.html
-                   -->
-                   <!-- 
-                    <$mt:PagePermalink$>
-                    現在のページのアーカイブへの絶対 URL を表示します。
-                    https://movabletype.net/tags/2007/08/pagepermalink.html
-                   -->
-                   <li class="gnav__menu__item"><a href="<$mt:PagePermalink$>"><$mt:PageTitle encode_html="1"$></a></li>
-                </mt:Pages>
-                <!-- 
-                  <$mt:BlogRelativeURL$>
-                  ブログのURLを、ホストからの相対URLで表示。
-                  たとえば、ブログの URL が http://blog.example.com/first-weblog/ の場合、/first-weblog/を表示。
-                  https://movabletype.net/tags/2007/08/blogrelativeurl.html
-                 -->
-                <!-- ニュースページリンク -->
-                <li class="gnav__menu__item"><a href="<$mt:BlogRelativeURL$>news.html">ニュース</a></li>
-              </ul>
-            </div>
-          </nav>
-      </div>
-    </header>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- ogp -->
+		<meta property="og:type" content="website" />
+		<title>Nurse CAFE - ケーキとコーヒー豆にこだわった喫茶店</title>
+		<meta
+			name="description"
+			content="Nurse CAFE は、ケーキとコーヒー豆にこだわった昔ながらの喫茶店です。是非お越しください。"
+		/>
+		<meta
+			property="og:title"
+			content="Nurse CAFE - ケーキとコーヒー豆にこだわった喫茶店"
+		/>
+		<meta
+			property="og:description"
+			content="Nurse CAFE は、ケーキとコーヒー豆にこだわった昔ながらの喫茶店です。是非お越しください。"
+		/>
+		<meta property="og:url" content="https://traveler20.github.io/cafeteria/" />
+		<meta
+			property="og:image"
+			content="https://traveler20.github.io/cafeteria/asset/img/ogp.webp"
+		/>
+		<meta property="og:locale" content="ja_JP" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@traveler20site" />
+		<link rel="icon" type="image/x-icon" href="./asset/img/favicon.ico" />
+		<!-- css -->
+		<link rel="stylesheet" href="./asset/css/style.css" />
+	</head>
+	<body>
+		<!-- .c-loading -->
+		<article class="c-loading" id="js-loading">
+			<div class="c-loading__spinner"></div>
+		</article>
+		<!-- /.c-loading -->
 
-    <!-- /sp -->
-  	<main class="index__main" id="pagetop">
-  		<div class="inner">
-        <!-- fvキャッチコピー -->
-        <dl class="index__catchWrap">
-          <dt class="index__catch">
-          Modern<br />
-          Corporate
-          </dt>
-          <dd class="index__catchTxt">
-          余白を大きくとり、高解像度の写真を使ったテーマ。<br>
-          洗練された印象を与え、ブランドイメージを効果的に伝えることができます。<br>
-          中小規模の企業サイトや、ショップサイトに最適です。
-          </dd>
-        </dl>
-  	  </div>
-      <!-- 下スクロールボタン -->
-      <div class="index__main__scrollBtn"></div>
-  	</main>
+		<!-- .l-header -->
+		<header class="l-header" id="js-header">
+			<div class="l-header__inner">
+				<a class="l-header__logo" href="/">logo</a>
+				<nav class="l-header__nav">
+					<a href="#contact" class="l-header__navCta">contact</a>
+					<input
+						type="checkbox"
+						class="js-navToggle"
+						id="l-header__navToggle"
+					/>
+					<label for="l-header__navToggle" class="l-header__navHamburger">
+						<span></span>
+					</label>
+					<label for="l-header__navToggle" class="l-header__navClose"></label>
+					<ul class="l-header__navLists js-navLists">
+						<li><a href="#news">news</a></li>
+						<li><a href="#about">about</a></li>
+						<li><a href="#menu">menu</a></li>
+						<li><a href="#access">access</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- /.l-header -->
 
-    <!-- 固定ヘッダーナビ -->
-  	<nav class="index__navi">
-  		<div class="inner">
-        <!-- 
-          <$mt:BlogURL$>
-          ブログの URL (サイト URL) をhttp://から始まる絶対 URL で表示
-          https://movabletype.net/tags/2007/08/blogurl.html
-         -->
-        <!-- pcのヘッダーロゴ -->
-        <h1 class="index__navi__title">
-          <a href="<$mt:BlogURL$>" class="header__title">
-          <mt:If tag="CustomFieldValue" identifier="blog_logo">
-            <!-- 
-              <$mt:BlogName$>
-              ブログの名前
-              https://movabletype.net/tags/2007/08/blogname.html
-             -->
-            <!-- トップロゴ画像/トップタイトル -->
-            <img 
-              src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" 
-              alt="<$mt:BlogName$>"
-            >
-          <mt:Else>
-            <$mt:BlogName$>
-          </mt:If>
-          </a>
-        </h1>
-        <ul class="navi__list">
-          <!-- 
-            <mt:Pages>
-            ウェブページの一覧を表示するためのブロックタグ
-            https://movabletype.net/tags/2007/08/pages.html
-          -->
-          <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
-                <!-- 
-                  <$mt:PageTitle$>
-                  ウェブページのタイトルを表示します。
-                  https://movabletype.net/tags/2007/08/pagetitle.html
-                 -->
-                 <!-- 
-                  <$mt:PagePermalink$>
-                  現在のページのアーカイブへの絶対 URL を表示します。
-                  https://movabletype.net/tags/2007/08/pagepermalink.html
-                 -->
-              <li>
-                <a 
-                  href="
-                  <mt:If tag="CustomFieldValue" identifier="page_maintextarea">
-                    #<$mt:PageBasename$>
-                  <mt:Else>
-                    <$mt:PagePermalink$>
-                  </mt:If>"
-                >
-                  <$mt:PageTitle encode_html="1"$>
-                </a>
-              </li>
-          </mt:Pages>
-          <mt:If name="entrycount" gt="0">
-            <li><a href="#news">ニュース</a></li>
-          </mt:If>
-        </ul>
-  		</div>
-  	</nav>
-    
-    <!-- 
-      <mt:Pages>
-      ウェブページの一覧を表示するためのブロックタグ
-      https://movabletype.net/tags/2007/08/pages.html
-    -->
-    <!-- メインページ -->
-    <mt:Pages sort_order="ascend">
-    <mt:If tag="CustomFieldValue" identifier="page_maintextarea">
-      <section class="index__sectionWrap">
-        <div class="index__section__header">
-          <div class="inner">
-            <!-- 
-            <$mt:PageTitle$>
-            ウェブページのタイトルを表示します。
-            https://movabletype.net/tags/2007/08/pagetitle.html
-            -->
-            <!-- メインページタイトル -->
-            <h2 class="index__section__title" id="<$mt:PageBasename$>">
-              <$mt:PageTitle encode_html="1"$>
-            </h2>
-          </div>
-        </div>
-        <div class="inner wysiwyg index__wysiwyg">
-        <!-- メインページテキストエリア -->
-        <$mt:CustomFieldValue identifier="page_maintextarea"$>
-        <!-- メインページリンク -->
-        <mt:If tag="CustomFieldValue" identifier="page_mainbutton">
-          <!-- 
-          <$mt:PagePermalink$>
-          現在のページのアーカイブへの絶対 URL を表示します。
-          https://movabletype.net/tags/2007/08/pagepermalink.html
-          -->
-          <button 
-            class="index__section__btn" 
-            onclick="location.href='<$mt:PagePermalink$>'"
-          >
-            <$mt:GetVar name="main_pagebuttonTxt"$>
-          </button>
-        </mt:If>
-        </div>
-      </section>
-    </mt:If>
-    </mt:Pages>
-      
-    <!-- ニュースセクション -->
-      <section class="index__sectionWrap index__newsWrap">
-        <div class="index__section__header">
-          <div class="inner">
-            <h2 class="index__section__title" id="news">ニュース</h2>
-          </div>
-        </div>
-        <div class="inner">
-          <ul class="index__news">
-            <!-- 
-              <mt:Entries>
-              ブログ記事の一覧のためのブロックタグ
-              https://movabletype.net/tags/2007/08/entries.html
+		<!-- main -->
+		<main>
+			<!-- /.p-fv -->
+			<section class="p-fv">
+				<div class="c-section__inner">
+					<h1 class="p-fv__title">Nurse CAFE</h1>
+					<p class="p-fv__copy">
+						<span class="u-inline-block">ケーキとコーヒー豆にこだわった</span
+						><span class="u-inline-block">昔ながらの純喫茶</span>
+					</p>
+				</div>
+			</section>
+			<!-- /.p-fv -->
 
-              <$mt:EntryTitle$>
-              ブログ記事のタイトル
-              https://movabletype.net/tags/2007/08/entrytitle.html
+			<!-- .p-news -->
+			<section id="news" class="p-news c-section">
+				<div class="c-section__inner">
+					<h2 class="c-section__title" data-en="News">お知らせ一覧</h2>
+					<p class="c-section__lead">最新のニュース一覧です。</p>
+					<ul class="p-news__lists">
+						<li class="p-news__list">
+							<a href=""
+								><time>2021.11.01</time
+								><span class="p-news__category">お知らせ</span
+								><br
+									class="sp-only"
+								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
+							>
+						</li>
+						<li class="p-news__list">
+							<a href=""
+								><time>2021.11.01</time
+								><span class="p-news__category">お知らせ</span
+								><br
+									class="sp-only"
+								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
+							>
+						</li>
+						<li class="p-news__list">
+							<a href=""
+								><time>2021.11.01</time
+								><span class="p-news__category">お知らせ</span
+								><br
+									class="sp-only"
+								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
+							>
+						</li>
+						<li class="p-news__list">
+							<a href=""
+								><time>2021.11.01</time
+								><span class="p-news__category">お知らせ</span
+								><br
+									class="sp-only"
+								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
+							>
+						</li>
+						<li class="p-news__list">
+							<a href=""
+								><time>2021.11.01</time
+								><span class="p-news__category">お知らせ</span
+								><br
+									class="sp-only"
+								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
+							>
+						</li>
+					</ul>
+					<div class="c-buttonBlock">
+						<a href="#news" class="c-button">ニュース記事一覧へ</a>
+					</div>
+				</div>
+			</section>
+			<!-- /.p-news -->
 
-              <$mt:EntryPermalink$>
-              ブログ記事を含むアーカイブの絶対 URL
-              https://movabletype.net/tags/2007/08/entrypermalink.html
+			<!-- .p-about -->
+			<section id="about" class="p-about c-section">
+				<div class="c-section__inner">
+					<figure class="c-2columns">
+						<div class="c-2columns__sub">
+							<img src="./asset/img/cafe1.jpg" alt="" loading="lazy" />
+							<img src="./asset/img/cafe2.jpg" alt="" loading="lazy" />
+						</div>
+						<figcaption class="c-2columns__figcaption">
+							<h2 class="c-section__title" data-en="About">Nurse CAFE とは</h2>
+							<p class="c-section__lead">
+								ケーキとコーヒー豆にうるさい店主が営む昔ながらの喫茶店。
+							</p>
+							<p>
+								複素数体であれば、任意のCM-タイプのAは、実際、数体である定義体（英語版）(fieldofdefinition)を持つ。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosatiinvolution）をもつ環として既に分類される。
+							</p>
+							<p>
+								複素数体であれば、任意のCM-タイプのAは、実際、数体である定義体（英語版）(fieldofdefinition)を持つ。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosatiinvolution）をもつ環として既に分類される。
+							</p>
+						</figcaption>
+					</figure>
+					<div class="c-buttonBlock">
+						<a href="" class="c-button">当カフェのこだわりについて</a>
+					</div>
+				</div>
+			</section>
+			<!-- /.p-about -->
 
-              <$mt:EntryBody$>
-              ブログ記事の本文
-              https://movabletype.net/tags/2007/08/entrybody.html
+			<section class="c-section--bg"></section>
 
-              <$mt:EntryExcerpt$>
-              ブログ記事の概要。指定がない場合はブログ記事の本文を、最初から 40 文字
-              https://movabletype.net/tags/2007/08/entryexcerpt.html
+			<!-- .p-menu -->
+			<section id="menu" class="p-menu c-section">
+				<div class="c-section__inner">
+					<h2 class="c-section__title" data-en="Menu">メニュー一覧</h2>
+					<p class="c-section__lead">提供しているメニュー一覧です。</p>
+					<dl class="c-gallery">
+						<dt></dt>
+						<dd>
+							<ul class="c-gallery__lists">
+								<li class="c-gallery__list">
+									<img
+										src="./asset/img/menu-coffee1.jpg"
+										alt=""
+										loading="lazy"
+									/>
+								</li>
+								<li class="c-gallery__list">
+									<img
+										src="./asset/img/menu-coffee2.jpg"
+										alt=""
+										loading="lazy"
+									/>
+								</li>
+								<li class="c-gallery__list">
+									<img
+										src="./asset/img/menu-coffee3.jpg"
+										alt=""
+										loading="lazy"
+									/>
+								</li>
+								<li class="c-gallery__list">
+									<img src="./asset/img/menu-set1.jpg" alt="" loading="lazy" />
+								</li>
+								<li class="c-gallery__list">
+									<img src="./asset/img/menu-set2.jpg" alt="" loading="lazy" />
+								</li>
+								<li class="c-gallery__list">
+									<img src="./asset/img/menu-set3.jpg" alt="" loading="lazy" />
+								</li>
+								<li class="c-gallery__list">
+									<img src="./asset/img/menu-set4.jpg" alt="" loading="lazy" />
+								</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<!-- /.p-menu -->
 
-              モディファイアで条件指定可能
-             -->
-            <!-- ニュース記事の表示数 -->
-            <mt:Entries lastn="4">
-            <li>
-              <!-- 各記事のリンク -->
-              <a href="<$mt:EntryPermalink$>">
-              <div class="index__newsWrap">
-                <div class="index__news__dateWrap">
-                  <!-- 各記事のカテゴリー有る場合 -->
-                  <mt:If tag="CategoryCount">
-                  <p class="index__news__category">   
-                    <!-- 各記事のカテゴリーラベル -->
-                    <mt:EntryCategories type="primary">
-                      <$mt:CategoryLabel encode_html="1"$>
-                    </mt:EntryCategories>
-                  </p>
-                  <!-- 各記事のカテゴリー無い場合 -->
-                  <mt:else>
-                  <p class="index__news__category--no">
-                  </p>
-                  </mt:If>
-                  <p class="index__news__date">
-                    <!-- 各記事の日付 -->
-                    <time datetime="<$mt:EntryDate format_name='iso8601'$>">
-                      <$mt:EntryDate format="%x"$>
-                    </time>
-                  </p>
-                </div>
-                <!-- 各記事のタイトルテキスト -->
-                <p class="index__news__text"><$mt:EntryTitle encode_html="1"$></p>
-              </div>
-              </a>
-            </li>
-            </mt:Entries>
-          </ul>
-          <!-- ニュース一覧リンク -->
-          <button class="index__section__btn" onclick="location.href='news.html'">全て見る</button>
-        </div>
-      </section>
+			<!-- .p-access -->
+			<section id="access" class="p-access c-section">
+				<div class="c-section__inner">
+					<h2 class="c-section__title" data-en="Access">アクセス</h2>
+					<p class="c-section__lead">是非お越しください。</p>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1891.2137221315336!2d139.7474972920705!3d35.65634977725274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b048a3029a5%3A0x99b8d1a87dc420b1!2z5riv5Yy656uL6Iqd5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1640317111193!5m2!1sja!2sjp"
+						class="p-access__map"
+						allowfullscreen=""
+						loading="lazy"
+					></iframe>
+				</div>
+			</section>
+			<!-- /.p-access -->
 
-  <!-- フッターの呼び出し -->
-  <$mt:Include module="フッター"$>
-  <!-- <script src="<$mt:BlogURL encode_html="1"$>common/js/main.js"></script> -->
-  </body>
+			<!-- .p-contact -->
+			<section id="contact" class="p-contact c-section">
+				<div class="c-section__inner">
+					<h2 class="c-section__title--center" data-en="Contact">
+						お問い合わせ
+					</h2>
+					<p class="c-section__lead">お問合わせはこちらからご連絡ください。</p>
+					<form
+						action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdKu5nx2UrKoUZ2vpv8aKSG0LmLhYMiGTr5FKgEVZTHTBbblw/formResponse"
+						method="POST"
+						target="hidden_iframe"
+						onsubmit="submitted=true;"
+						class="c-form"
+					>
+						<div class="c-form__item">
+							<label class="c-form__label" for="field-name"
+								>名前・会社名<span class="c-form__required">必須</span></label
+							>
+							<input
+								name="entry.690315515"
+								class="c-form__input"
+								id="field-name"
+								placeholder="株式会社 山田"
+								type="text"
+								required="required"
+							/>
+						</div>
+						<div class="c-form__item">
+							<label class="c-form__label" for="field-mail"
+								>メールアドレス<span class="c-form__required">必須</span></label
+							>
+							<input
+								name="entry.310605352"
+								class="c-form__input"
+								id="field-mail"
+								placeholder="sample@gmail.com"
+								type="email"
+								required="required"
+							/>
+						</div>
+						<div class="c-form__item">
+							<label class="c-form__label" for="field-select"
+								>ご用件/目的<span class="c-form__required">必須</span></label
+							>
+							<select
+								name="entry.2098078720"
+								class="c-form__input"
+								id="field-select"
+								required="required"
+							>
+								<option value="">選択してください</option>
+								<option value="WEBサイトデザインのお見積り">
+									WEBサイトデザインのお見積り
+								</option>
+								<option value="WEBサイトコーディングのお見積り">
+									WEBサイトコーディングのお見積り
+								</option>
+								<option value="WEBサイト構築のお見積り">
+									WEBサイト構築のお見積り
+								</option>
+								<option value="取材等の連絡">取材等の連絡</option>
+								<option value="その他（メッセージ内容に記載ください）">
+									その他（メッセージ内容に記載ください）
+								</option>
+							</select>
+						</div>
+						<div class="c-form__item">
+							<label class="c-form__label" for="field-message"
+								>メッセージ内容</label
+							>
+							<textarea
+								name="entry.1726417427"
+								class="c-form__input"
+								id="field-message"
+								placeholder="お問い合わせ内容"
+							></textarea>
+						</div>
+						<div class="c-form__submit">
+							<button type="submit" class="c-button">送信する</button>
+						</div>
+					</form>
+					<p id="js-formThanks" class="c-formThanks">
+						お問い合わせありがとうございます。
+					</p>
+				</div>
+			</section>
+			<!-- /.p-contact -->
+		</main>
+		<!-- /main -->
+
+		<!-- .l-footer -->
+		<footer class="l-footer">
+			<div class="l-footer__inner">
+				<nav class="l-footer__nav">
+					<h4 class="l-footer__subtitle">Links</h4>
+					<ul class="l-footer__lists">
+						<li><a href="#news">news</a></li>
+						<li><a href="#about">about</a></li>
+						<li><a href="#menu">menu</a></li>
+						<li><a href="#access">access</a></li>
+						<li><a href="#contact">contact</a></li>
+					</ul>
+				</nav>
+				<nav class="l-footer__nav">
+					<h4 class="l-footer__subtitle">About</h4>
+					<ul class="l-footer__lists">
+						<li><a href="">お問い合わせ</a></li>
+						<li><a href="">運営会社</a></li>
+						<li><a href="">プライバシーポリシー</a></li>
+						<li><a href="">利用規約</a></li>
+					</ul>
+				</nav>
+				<small class="l-footer__copy">&copy;&nbsp;2021&nbsp;traveler20.</small>
+			</div>
+		</footer>
+		<!-- /.l-footer -->
+
+		<script src="./asset/js/script.js"></script>
+		<iframe
+			name="hidden_iframe"
+			id="hidden_iframe"
+			style="display: none"
+			onload="if(submitted){document.getElementById('js-formThanks').classList.add('is-received');}"
+		></iframe>
+	</body>
 </html>
