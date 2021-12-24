@@ -19,17 +19,17 @@
 			property="og:description"
 			content="Nurse CAFE は、ケーキとコーヒー豆にこだわった昔ながらの喫茶店です。是非お越しください。"
 		/>
-		<meta property="og:url" content="https://traveler20.github.io/cafeteria/" />
+		<meta property="og:url" content="<$mt:BlogRelativeURL$>" />
 		<meta
 			property="og:image"
-			content="https://traveler20.github.io/cafeteria/asset/img/ogp.webp"
+			content="<$mt:BlogRelativeURL$>asset/img/ogp.webp"
 		/>
 		<meta property="og:locale" content="ja_JP" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@traveler20site" />
-		<link rel="icon" type="image/x-icon" href="./asset/img/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="<$mt:BlogRelativeURL$>asset/img/favicon.ico" />
 		<!-- css -->
-		<link rel="stylesheet" href="./asset/css/style.css" />
+		<link rel="stylesheet" href="<$mt:BlogRelativeURL$>asset/css/style.css" />
 	</head>
 	<body>
 		<!-- .c-loading -->
@@ -41,9 +41,19 @@
 		<!-- .l-header -->
 		<header class="l-header" id="js-header">
 			<div class="l-header__inner">
-				<a class="l-header__logo" href="/">Nurse CAFE</a>
+                <!-- mt-tag -->
+				<a class="l-header__logo" href="<$mt:BlogURL$>">
+                    <!-- mt-if -->
+                    <mt:If tag="CustomFieldValue" identifier="blog_logo">
+                        <!-- トップロゴ画像/トップタイトル -->
+                        <img src="<mt:CustomFieldAsset identifier="blog_logo"><$mt:AssetURL$></mt:CustomFieldAsset>" alt="<$mt:BlogName$>">
+                    <mt:Else>
+                        <$mt:BlogName$>
+                    </mt:If>
+                    <!-- /mt-if -->
+                </a>
 				<nav class="l-header__nav">
-					<a href="#contact" class="l-header__navCta">contact</a>
+					<a href="<$mt:BlogURL$>contact.html" class="l-header__navCta">contact</a>
 					<input
 						type="checkbox"
 						class="js-navToggle"
@@ -53,12 +63,19 @@
 						<span></span>
 					</label>
 					<label for="l-header__navToggle" class="l-header__navClose"></label>
-					<ul class="l-header__navLists js-navLists">
-						<li><a href="#news">news</a></li>
-						<li><a href="#about">about</a></li>
-						<li><a href="#menu">menu</a></li>
-						<li><a href="#access">access</a></li>
-					</ul>
+                    <ul class="l-header__navLists js-navLists">
+                        <li>
+                            <a href="<$mt:BlogURL$>news.html">news</a>
+                        </li>
+                        <mt:Pages field:page_naviposition="ヘッダー・フッター" sort_order="ascend">
+                        <li>
+                            <a href="<mt:If tag="CustomFieldValue" identifier="page_maintextarea">#<$mt:PageBasename$><mt:Else><$mt:PagePermalink$></mt:If>">
+                                <$mt:PageTitle encode_html="1"$>
+                            </a>
+                        </li>
+                        </mt:Pages>
+                        <li><a href="<$mt:BlogURL$>#access">access</a></li>
+                    </ul>
 				</nav>
 			</div>
 		</header>
@@ -84,85 +101,57 @@
 					<h2 class="c-section__title" data-en="News">お知らせ一覧</h2>
 					<p class="c-section__lead">最新のニュース一覧です。</p>
 					<ul class="p-news__lists">
+                        <!-- mt-entries -->
+                        <mt:Entries lastn="4">
 						<li class="p-news__list">
-							<a href=""
-								><time>2021.11.01</time
-								><span class="p-news__category">お知らせ</span
+                            <!-- mt-tag -->
+							<a href="<$mt:EntryPermalink$>"
+								><time datetime="<$mt:EntryDate format_name='iso8601'$>"><$mt:EntryDate format="%x"$></time
+								><span class="p-news__category"><$mt:CategoryLabel encode_html="1"$></span
 								><br
 									class="sp-only"
-								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
+								/><$mt:EntryTitle encode_html="1"$></a
 							>
 						</li>
-						<li class="p-news__list">
-							<a href=""
-								><time>2021.11.01</time
-								><span class="p-news__category">お知らせ</span
-								><br
-									class="sp-only"
-								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
-							>
-						</li>
-						<li class="p-news__list">
-							<a href=""
-								><time>2021.11.01</time
-								><span class="p-news__category">お知らせ</span
-								><br
-									class="sp-only"
-								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
-							>
-						</li>
-						<li class="p-news__list">
-							<a href=""
-								><time>2021.11.01</time
-								><span class="p-news__category">お知らせ</span
-								><br
-									class="sp-only"
-								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
-							>
-						</li>
-						<li class="p-news__list">
-							<a href=""
-								><time>2021.11.01</time
-								><span class="p-news__category">お知らせ</span
-								><br
-									class="sp-only"
-								/>ホームページを大幅にリニューアルしました。ぜひご覧ください。</a
-							>
-						</li>
+                        </mt:Entries>
+                        <!-- /mt-entries -->
 					</ul>
 					<div class="c-buttonBlock">
-						<a href="#news" class="c-button">ニュース記事一覧へ</a>
+                        <!-- mt-tag -->
+						<a href="<$mt:BlogURL$>news.html" class="c-button">ニュース記事一覧へ</a>
 					</div>
 				</div>
 			</section>
 			<!-- /.p-news -->
 
 			<!-- .p-about -->
+            <mt:Pages sort_order="ascend">
+            <mt:If tag="CustomFieldValue" identifier="page_maintextarea">
 			<section id="about" class="p-about c-section">
 				<div class="c-section__inner">
 					<figure class="c-2columns">
 						<div class="c-2columns__sub">
-							<img src="./asset/img/cafe1.webp" alt="" loading="lazy" />
-							<img src="./asset/img/cafe2.webp" alt="" loading="lazy" />
+							<img src="<$mt:BlogRelativeURL$>asset/img/cafe1.webp" alt="" loading="lazy" />
+							<img src="<$mt:BlogRelativeURL$>asset/img/cafe2.webp" alt="" loading="lazy" />
 						</div>
 						<figcaption class="c-2columns__figcaption">
-							<h2 class="c-section__title" data-en="About">Nurse CAFE とは</h2>
+							<h2 class="c-section__title" data-en="<$mt:PageBasename$>">
+                                Nurse CAFE とは
+                            </h2>
 							<p class="c-section__lead">
-								ケーキとコーヒー豆にうるさい店主が営む昔ながらの喫茶店。
-							</p>
-							<p>
-								複素数体であれば、任意のCM-タイプのAは、実際、数体である定義体（英語版）(fieldofdefinition)を持つ。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosatiinvolution）をもつ環として既に分類される。
-							</p>
-							<p>
-								複素数体であれば、任意のCM-タイプのAは、実際、数体である定義体（英語版）(fieldofdefinition)を持つ。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosatiinvolution）をもつ環として既に分類される。
+                                <$mt:CustomFieldValue identifier="page_maintextarea"$>
 							</p>
 						</figcaption>
 					</figure>
+                    <mt:If tag="CustomFieldValue" identifier="page_mainbutton">
 					<div class="c-buttonBlock">
-						<a href="" class="c-button">当カフェのこだわりについて</a>
+						<a href="<$mt:PagePermalink$>" class="c-button">当カフェのこだわりについて</a>
 					</div>
+                    </mt:If>
 				</div>
 			</section>
+            </mt:If>
+            </mt:Pages>
 			<!-- /.p-about -->
 
 			<section class="c-section--bg"></section>
@@ -178,51 +167,51 @@
 							<ul class="c-gallery__lists">
 								<li class="c-gallery__list">
 									<img
-										src="./asset/img/menu-coffee1.webp"
+										src="<$mt:BlogRelativeURL$>asset/img/menu-coffee1.webp"
 										alt=""
 										loading="lazy"
 									/>
 								</li>
 								<li class="c-gallery__list">
 									<img
-										src="./asset/img/menu-coffee2.webp"
+										src="<$mt:BlogRelativeURL$>asset/img/menu-coffee2.webp"
 										alt=""
 										loading="lazy"
 									/>
 								</li>
 								<li class="c-gallery__list">
 									<img
-										src="./asset/img/menu-coffee3.webp"
+										src="<$mt:BlogRelativeURL$>asset/img/menu-coffee3.webp"
 										alt=""
 										loading="lazy"
 									/>
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu1.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu1.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu2.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu2.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu3.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu3.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu4.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu4.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu5.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu5.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu-set1.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu-set1.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu-set2.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu-set2.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu-set3.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu-set3.webp" alt="" loading="lazy" />
 								</li>
 								<li class="c-gallery__list">
-									<img src="./asset/img/menu-set4.webp" alt="" loading="lazy" />
+									<img src="<$mt:BlogRelativeURL$>asset/img/menu-set4.webp" alt="" loading="lazy" />
 								</li>
 							</ul>
 						</dd>
@@ -363,7 +352,7 @@
 		</footer>
 		<!-- /.l-footer -->
 
-		<script src="./asset/js/script.js"></script>
+		<script src="<$mt:BlogRelativeURL$>asset/js/script.js"></script>
 		<iframe
 			name="hidden_iframe"
 			id="hidden_iframe"
