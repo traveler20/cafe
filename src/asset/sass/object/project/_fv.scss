@@ -44,6 +44,9 @@
 	}
 
 	@include s.breakpoint(tablet) {
+		.c-section__inner {
+			padding-left: 3vw;
+		}
 		&__title {
 			line-height: 1.2;
 		}
