@@ -6,9 +6,10 @@
 	width: 96vw;
 	height: 88vh;
 	background-image: url(./../img/fv.jpg);
-	background-attachment: fixed;
+	// background-attachment: fixed;
 	background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
 	border-radius: 0 0 80px 0;
 
 	display: flex;
